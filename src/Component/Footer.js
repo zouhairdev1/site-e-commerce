@@ -3,8 +3,8 @@ export default function Footer(){
         <div className="footer-container">
           <div className="footer-content">
             <div className="logo-section">
-              <img src="https://placehold.co/64x64" alt="Logo" className="logo3" />
-              <span className="company-name">E-com World</span>
+              <img src="/logo.png" alt="Logo" className="logo3" />
+              
             </div>
             <div className="social-media-section">
               <p className="social-media-header">Find us in social media</p>

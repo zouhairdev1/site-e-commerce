@@ -1,12 +1,5 @@
-.navbar {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px 5px;
-   
-  }
-  .nav{
-     margin-left: 100px;
-  }
+
+  
   
   .logo {
     margin-right: 0.75rem;
@@ -207,7 +200,7 @@
   display: flex; /* Use flexbox */
   flex-wrap: nowrap; /* Prevent wrapping */
   gap: 4px;
-  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-x: hidden; /* Enable horizontal scrolling */
  
 }
 
@@ -299,6 +292,7 @@
   white-space: nowrap; /* Prevent wrapping */
   display: flex; /* Enable flexbox */
   scroll-behavior: smooth; /* Smooth scrolling */
+ 
 }
 /* Scroll left button */
 #scrollLeft:checked ~ .scroll-container {
