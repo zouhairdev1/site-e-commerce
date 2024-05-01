@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const itemNave =
@@ -10,9 +11,9 @@ export default function Header() {
       >
         <div className="flex w-full h-fit lg:items-end sm:items-center flex-wrap  justify-between px-3">
           <div className="mx-2   my-auto">
-            <a className="text-xl text-black" href="#">
+            <Link className="text-xl text-black"to={'/'}>
               <img src="/logo.png" className="w-32 h-16" />
-            </a>
+            </Link>
           </div>
 
           <button
@@ -57,76 +58,76 @@ export default function Header() {
                 className="my-4 ps-2  bg-black text-white p-2 w-20 text-center rounded-full lg:my-0 lg:pe-1 lg:ps-2"
                 data-twe-nav-item-ref
               >
-                <a
+                <Link
                   className=" transition duration-200 my-auto   hover:ease-in-out  active:text-black/80 motion-reduce:transition-none lg:px-2"
                   aria-current="page"
-                  href="#"
+                  to={'/'}
                   data-twe-nav-link-ref
                 >
                   Home
-                </a>
+                </Link>
               </li>
 
               <li
                 className={"mb-4 ps-2 lg:mb-0  lg:pe-1 lg:ps-0" + itemNave}
                 data-twe-nav-item-ref
               >
-                <a
+                <Link
                   className="p-0   hover:ease-in-out active:text-black/80 motion-reduce:transition-none lg:px-2"
-                  href="#"
+                  to={'/profile'}
                   data-twe-nav-link-ref
                 >
                   Profile
-                </a>
+                </Link>
               </li>
 
               <li
                 className={"mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" + itemNave}
                 data-twe-nav-item-ref
               >
-                <a
+                <Link
                   className="p-0  transition duration-200 hover:ease-in-out  active:text-black/80 motion-reduce:transition-none lg:px-2"
-                  href="#"
+                  to={'/saved'}
                   data-twe-nav-link-ref
                 >
                   Saved
-                </a>
+                </Link>
               </li>
   <li
                 className={"mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" + itemNave}
                 data-twe-nav-item-ref
               >
-                <a
+                <Link
                   className="p-0  transition duration-200  hover:ease-in-out focus:text-neutral-700 active:text-black/80 motion-reduce:transition-none lg:px-2"
-                  href="#"
+                  to={'/products'}
                   data-twe-nav-link-ref
                 >
                    Products
-                </a>
+                </Link>
               </li>
                <li
                 className={"mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" + itemNave}
                 data-twe-nav-item-ref
               >
-                <a
+                <Link
                   className="p-0  transition duration-200  hover:ease-in-out  active:text-black/80 motion-reduce:transition-none lg:px-2"
-                  href="#"
+                  to={'/cart'}
                   data-twe-nav-link-ref
                 >
                     Cart
-                </a>
+                </Link>
               </li> 
                   <li
                 className={"mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" + itemNave}
                 data-twe-nav-item-ref
               >
-                <a
+                <Link
                   className="p-0  transition duration-200  hover:ease-in-out  active:text-black/80 motion-reduce:transition-none lg:px-2"
-                  href="#"
+                  to={'/selling'}
                   data-twe-nav-link-ref
                 >
                     Selling
-                </a>
+                </Link>
               </li>   
 
               <li
@@ -134,26 +135,26 @@ export default function Header() {
                 data-twe-nav-item-ref
               >
                 
-                <a
+                <Link
                   className="p-0  transition duration-200  hover:ease-in-out  active:text-black/80 motion-reduce:transition-none lg:px-2"
-                  href="#"
+                  to={'/about'}
                   data-twe-nav-link-ref
                 >
                   About
-                </a>
+                </Link>
               </li>
                <li
                 className={"mb-4 ps-2 lg:mb-0 lg:pe-1 lg:ps-0" + itemNave}
                 data-twe-nav-item-ref
               >
                 
-                <a
+                <Link
                   className="p-0  transition duration-200  hover:ease-in-out  active:text-black/80 motion-reduce:transition-none lg:px-2"
-                  href="#"
+                  to={'/contact'}
                   data-twe-nav-link-ref
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
             </div>
@@ -198,8 +199,8 @@ export default function Header() {
                
               </div>
               <div className="w-fit flex mt-2 gap-4   flex-row   ms-24 ">
-                <a className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-black text-white " href="">Sign Up</a>
-                <a className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-[#EBEBEB] text-black" href="">Login</a>
+                <Link className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-black text-white " to={"/login"}>Sign Up</Link>
+                <Link className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-[#EBEBEB] text-black" to={"/signup"}>Login</Link>
               </div>
             </div>
           </div>
