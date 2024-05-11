@@ -25,7 +25,7 @@ const Feedback = () => {
 
 const TestimonialCard = ({ name, username }) => {
   return (
-    <div className="card border shadow mt-4">
+    <div className="card border shadow mt-4" style={{ borderRadius: '0.5rem' }}>
       <div className="info2 group flex items-center ms-3 my-2">
         <img src="https://placehold.co/80x80" alt={name} className="avatar" />
         <div>

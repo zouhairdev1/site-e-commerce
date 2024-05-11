@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const itemNave =
     " hover:bg-black  px-2 py-2 mx-1 text-black/60 transition duration-100  text-center hover:text-white rounded-full active:bg-black avtive:rounded-full";
+
   return (
     <>
       <nav
@@ -12,7 +13,7 @@ export default function Header() {
         <div className="flex w-full h-fit lg:items-end sm:items-center flex-wrap  justify-between px-3">
           <div className="mx-2   my-auto">
             <Link className="text-xl text-black"to={'/'}>
-              <img src="/logo.png" className="w-32 h-16" />
+              <img src="/logo.png" className="w-32 h-20" />
             </Link>
           </div>
 
@@ -159,17 +160,20 @@ export default function Header() {
             </ul>
             </div>
            
-            <div className="h-full ">
+          <div className="h-full ">
               <div className="flex flex-row items-start gap-5  justify-between">
-                <select
-                  className="border w-60 h-fit text-center  rounded-full
-   p-1 focus:outline-none focus:border-blue-500"
-                >
-                  <option>Categories</option>
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </select>
+              <select className="border w-60 h-fit text-center rounded-full p-1 focus:outline-none focus:border-gray-500">
+    <option>Categories</option>
+    <option value="option1">
+      <span className="hover:bg-black hover:text-white cursor-pointer">Option 1</span>
+    </option>
+    <option value="option2">
+      <span className="hover:bg-black hover:text-white cursor-pointer">Option 2</span>
+    </option>
+    <option value="option3">
+      <span className="hover:bg-black hover:text-white cursor-pointer">Option 3</span>
+    </option>
+  </select>
                 <div>
                   <span className="[&>svg]:w-6 [&>svg]:stroke-black/50">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

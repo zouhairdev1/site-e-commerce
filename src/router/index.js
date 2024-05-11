@@ -12,7 +12,7 @@ import Logo from "../layouts/Logo";
 import Login from "../pages/LoginPage";
 import SignUp from "../pages/SignUpPage";
 import VonderAcount from "../pages/VonderAcountPage";
-
+import DetailsProductsPage from "../pages/DetailsProductsPage";
 const routes = createBrowserRouter([
   {
     element: <Layout/>,
@@ -46,6 +46,10 @@ const routes = createBrowserRouter([
         element: <About/>,
       },
       {
+        path: "/detailsProductsPage",
+        element:<DetailsProductsPage/>,
+      },
+      {
         path: "/contact",
         element: <Contact/>,
       }
@@ -62,6 +66,7 @@ const routes = createBrowserRouter([
         path: "/signup",
         element:<SignUp/>,
       },
+      
       {
         path: "/vonderAcount",
         element: <VonderAcount/>,

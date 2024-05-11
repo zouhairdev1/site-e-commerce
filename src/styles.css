@@ -1,6 +1,4 @@
 
-  
-  
   .logo {
     margin-right: 0.75rem;
     height: 1.5rem; /* Correspond à 24px */
@@ -165,13 +163,15 @@
     margin-left: 50px;
 }
 
+
 .title1 {
     font-size: 2xl;
     font-weight: bold;
     text-align: left;
-    margin-top: 200px;
+    margin-top: 20px;
     margin-left: 50px;
 }
+
 
 .content1 {
     display: flex;
@@ -180,6 +180,7 @@
     gap: 8px;
     margin-top: 50px;
 }
+
 
 .button1 {
     padding: 2px;
@@ -204,21 +205,52 @@
  
 }
 
+  /* Details product */
+.product-card1 {
+  width: 20px; /* Adjust the width as needed */
+  /* Other styles */
+}
+
+
+.product-image1 {
+  width: 100%; /* Make the image fill the width of the card */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.product-name1,
+.product-description1 {
+  font-size: 14px; /* Adjust the font size of the name and description */
+}
+
+.price1 {
+  font-size: 16px; /* Adjust the font size of the price */
+}
+
+.add-to-cart-button1 {
+  font-size: 14px; /* Adjust the font size of the button */
+  /* Other button styles */
+}
+
+.product-footer1 {
+  margin-top: 10px; /* Add some space between the price and buttons */
+}
+/* --------- */
 .product-card {
-    background-color: #ffffff;
-    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.1);
-    border-radius: 8px #000;
-    padding: 16px;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    
-    flex: 0 0 auto;
-    position: relative;
+  justify-content: center; /* Centering horizontally */
+  background-color: #ffffff;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 16px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  flex: 0 0 auto;
+  position: relative;
+  border: 1px solid rgb(242, 242, 242); /* Adding black border */
 }
 
 .product-image {
-    width: 100%;
-    height: 64px;
+    width: 320px;
+    height: 150px;
     object-fit: cover;
     object-position: center;
 }
@@ -232,6 +264,9 @@
 .product-description {
     font-size: sm;
     color: #666666;
+    width: 320px;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .product-footer {
@@ -248,6 +283,7 @@
     font-weight: bold;
     margin-bottom: 50px;
     padding-bottom: 5px;
+    
 }
 
 .add-to-cart-button {
@@ -262,7 +298,7 @@
 
 
 .add-to-cart-button:hover {
-    background-color: #5c5959;
+    background-color: #474755;
 }
 
 .icon-save {
@@ -273,15 +309,13 @@
  /* Position the icon relative to its parent */
   right: 0; /* Align the icon to the right */
   /* Center the icon vertically */
-  transform: translateY(-50%); /* Adjust the icon position to vertically center it */
-  margin-top: 30px;
-  background-color: #000000;
-  color: #ffffff;
+  /* Adjust the icon position to vertically center it */
+  margin-top: 5px;
+  background-color: #ffffff;
+  color: #000000;
   border-radius: #000000;
 }
-.icon-save:hover{
-  color: #5c5959;
-}
+
 /*scrool*/
 .scroll-checkbox {
   display: none; /* Hide checkboxes */
@@ -391,6 +425,27 @@
 
 /* Footer styles */
 /* Footer Container */
+
+.Icons-media {
+  display: inline-block;
+  margin: 0 5px; /* Adjust as needed */
+}
+
+.circle-background {
+  width: 2.5em; /* Adjust size as needed */
+  height: 2.5em; /* Adjust size as needed */
+  border-radius: 50%; /* Makes it circular */
+  background-color: #f0f0f0; /* Change to desired background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.circle-background svg {
+  fill: black; /* Adjust icon color as needed */
+}
+
 .footer-container {
   background-color: #f0f0f0;
   max-width: 100%;
@@ -460,7 +515,7 @@
 /* Footer Links */
 .footer-links {
   list-style: none;
-  padding: 0;
+  padding: 5px;
 }
 
 .footer-link-item {
