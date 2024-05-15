@@ -49,7 +49,7 @@ export default function About() {
     
 }
 
-const containerClass = 'max-w-screen-lg mx-auto px-4';
+const containerClass = 'max-w-screen-lg mx-auto px-4 mb-20';
 const heading1Class = 'text-3xl font-bold text-zinc-800 mt-8 mb-6';
 const heading2Class = 'text-2xl font-semibold text-black-800 mb-3';
 const heading3Class = 'text-xl font-semibold text-zinc-800 mt-4 mb-4';

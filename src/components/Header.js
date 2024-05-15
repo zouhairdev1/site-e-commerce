@@ -13,7 +13,7 @@ export default function Header() {
         <div className="flex w-full h-fit lg:items-end sm:items-center flex-wrap  justify-between px-3">
           <div className="mx-2   my-auto">
             <Link className="text-xl text-black"to={'/'}>
-              <img src="/logo.png" className="w-32 h-20" />
+              <img src="/logo.png" className="w-32 h-22" />
             </Link>
           </div>
 
@@ -99,7 +99,7 @@ export default function Header() {
                 data-twe-nav-item-ref
               >
                 <Link
-                  className="p-0  transition duration-200  hover:ease-in-out focus:text-neutral-700 active:text-black/80 motion-reduce:transition-none lg:px-2"
+                  className="p-0  transition duration-200  hover:ease-in-out active:text-black/80 motion-reduce:transition-none lg:px-2"
                   to={'/products'}
                   data-twe-nav-link-ref
                 >
@@ -203,8 +203,8 @@ export default function Header() {
                
               </div>
               <div className="w-fit flex mt-2 gap-4   flex-row   ms-24 ">
-                <Link className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-black text-white " to={"/login"}>Sign Up</Link>
-                <Link className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-[#EBEBEB] text-black" to={"/signup"}>Login</Link>
+                <Link className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-black text-white " to={"/signup"}>Sign Up</Link>
+                <Link className=" px-6 py-2 rounded-md motion-reduce:transition-none bg-[#EBEBEB] text-black" to={"/login"}>Login</Link>
               </div>
             </div>
           </div>

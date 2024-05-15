@@ -5,6 +5,7 @@ import Profile from "../pages/ProfilePage";
 import Saved from "../pages/SavedPage";
 import Products from "../pages/ProductsPage";
 import Cart from "../pages/CartPage";
+import AddProduct from "../pages/AddProductPage";
 import Selling from "../pages/SellingPage";
 import About from "../pages/AboutPage";
 import Contact from "../pages/ContactPage";
@@ -36,6 +37,10 @@ const routes = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart/>,
+      },
+      {
+        path: "/addproduct",
+        element: <AddProduct/>,
       },
       {
         path: "/selling",
