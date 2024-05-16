@@ -156,7 +156,7 @@ function QtySelection() {
   return (
     <div className="flex items-center mt-4">
       <input
-        type="number"
+        type="number" placeholder="0"
         className="w-16 text-center border-zinc-300 border rounded-md appearance-none"
       />
     </div>
