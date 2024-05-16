@@ -1,7 +1,12 @@
 import { useState, useRef } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 export default function DetailsProduct() {
+  let {slug} =useParams()
+  const selectorData=useSelector((state)=>state.data.products);
+  let item= selectorData.find((item)=>item.id===Number(slug)  )
+  console.log(item);
   return (
     <div className="bg-white">
       <div className="max-w-100 mx-auto px-6">
@@ -13,6 +18,7 @@ export default function DetailsProduct() {
     </div>
   );
 }
+
 
 const fullWidth = "w-1/15 px-6 py-2";
 const roundedButton = "text-white px-1 py-1 rounded";

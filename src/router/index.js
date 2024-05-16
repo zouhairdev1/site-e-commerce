@@ -8,11 +8,13 @@ import Cart from "../pages/CartPage";
 import Selling from "../pages/SellingPage";
 import About from "../pages/AboutPage";
 import Contact from "../pages/ContactPage";
-import Logo from "../layouts/Logo";
+import Logo from "../layouts/LayoutConnexion";
 import Login from "../pages/LoginPage";
 import SignUp from "../pages/SignUpPage";
 import VonderAcount from "../pages/VonderAcountPage";
 import DetailsProductsPage from "../pages/DetailsProductsPage";
+import LayoutConnexion from "../layouts/LayoutConnexion";
+import { redirect } from "react-router-dom";
 const routes = createBrowserRouter([
   {
     element: <Layout/>,
@@ -24,6 +26,7 @@ const routes = createBrowserRouter([
         {
         path: "/profile",
         element: <Profile/>,
+      
       },
       {
         path: "/saved",
@@ -40,13 +43,14 @@ const routes = createBrowserRouter([
       {
         path: "/selling",
         element: <Selling/>,
+       
       },
       {
         path: "/about",
         element: <About/>,
       },
       {
-        path: "/detailsProductsPage",
+        path: "/detailsProductsPage/:slug",
         element:<DetailsProductsPage/>,
       },
       {
@@ -56,7 +60,7 @@ const routes = createBrowserRouter([
     ],
   },
   {
-    element:<Logo/>,
+    element:<LayoutConnexion/>,
     children:[
       {
         path: "/login",

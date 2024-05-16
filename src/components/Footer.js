@@ -1,6 +1,6 @@
 export default function Footer(){
     return (
-        <div className="footer-container">
+        <div className="footer-container mt-5 ">
           <div className="footer-content">
             <div className="logo-section">
               <img src="/logo.png" alt="Logo" className="logo3" />

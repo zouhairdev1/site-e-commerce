@@ -1,7 +1,7 @@
 import { Outlet,Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-export default function Logo(params) {
+export default function LayoutConnexion() {
     return (
         <>
          <div className=" container mx-auto  ">

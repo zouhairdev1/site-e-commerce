@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from "react-router-dom";
 import '../styles.css';
+import { useSelector } from 'react-redux';
 export default function ProductsPage() {
     return (
         <><Products />
@@ -14,14 +15,14 @@ const productCardClasses = 'product-card';
 const priceClasses = 'price';
 const addToCartButtonClasses = 'add-to-cart-button';
 
-const ProductCard = ({ imageSrc, productName, description, price }) => (
+const ProductCard = ({ imageSrc, productName, description, price,slug }) => (
     <div className={productCardClasses}>
         <img src={imageSrc} alt={productName} className="product-image" />
         <h3 className="product-name">{productName}</h3>
         <p className="product-description">{description}</p>
         <span className={priceClasses}>${price}</span>
         <div className="product-footer">
-            <Link className={addToCartButtonClasses} to={"/detailsProductsPage"}>Add To Cart</Link>
+            <Link className={addToCartButtonClasses} to={"/detailsProductsPage/".concat(slug)}>Add To Cart</Link>
             <IconSave />
         </div>
     </div>
@@ -30,64 +31,8 @@ const ProductCard = ({ imageSrc, productName, description, price }) => (
 const Products = () => {
    
 
-    const [categories, setCategories] = useState([
-        {
-            id: 1,
-            name: 'Electronics',
-            products: [
-                {
-                    id: 1,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'SAMSUNG GALAXY S23 ULTRA',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 1040
-                },
-                {
-                    id: 1,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'SAMSUNG GALAXY S23 ULTRA',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 1040
-                },
-                {
-                    id: 1,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'SAMSUNG GALAXY S23 ULTRA',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 1040
-                },
-            ]
-        },
-        {
-            id: 2,
-            name: 'Clothing',
-            products: [
-                {
-                    id: 2,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'T-shirt',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 25
-                },
-                {
-                    id: 2,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'T-shirt',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 25
-                },
-                {
-                    id: 2,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'T-shirt',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 25
-                },
-            ]
-        }
-        // Add more categories as needed
-    ]);
-
+    const [categories, setCategories] = useState(useSelector((state)=>state.data.productsByCategore));
+console.log(useSelector((state)=>state.data.productsByCategore));
     const scrollContainerRef = useRef(null);
 
     const handleScroll = (scrollOffset) => {
@@ -111,6 +56,7 @@ const Products = () => {
                             {category.products.map(product => (
                                 <ProductCard
                                     key={product.id}
+                                    slug={product.slug}
                                     imageSrc={product.imageSrc}
                                     productName={product.productName}
                                     description={product.description}
