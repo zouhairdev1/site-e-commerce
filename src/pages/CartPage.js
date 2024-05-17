@@ -1,4 +1,8 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart } from '../actions/Action';
+
+
 // Tailwind CSS classes grouped in constants for reused styles
 const buttonBaseStyle = 'text-black px-4 py-2 rounded-md';
 const flexSpaceBetween = 'flex justify-between';
@@ -28,11 +32,7 @@ export default function Cart() {
 
 
 const ProductSection = () => {
-  const products = [
-    { name: 'IPHONE 15 PRO MAX', price: '$1040', id: '123466768', color: 'Black', qty: 2, image: 'https://example.com/iphone.jpg' },
-    { name: 'SAMSUNG GALAXY S23 ULTRA', price: '$1040', id: '123466769', color: 'Black', qty: 1, image: 'https://example.com/samsung.jpg' },
-    { name: 'MACBOOK AIR M2', price: '$1040', id: '123466770', color: 'Black', qty: 1, image: 'https://example.com/macbook.jpg' },
-  ];
+  const products = useSelector((state)=>state.cart.itemsCart);
 
   return (
     <div className="full">
@@ -55,8 +55,13 @@ const ProductSection = () => {
 };
 
   
-const ProductItem = React.memo(({ product }) => {
+const ProductItem = (({ product }) => {
   const { name, price, id, qty, color, image } = product;
+  //remove item in cart
+  const dispatch=useDispatch()
+  const handleClick=()=>{
+    dispatch(removeFromCart(id))
+  };
   return (
     <tr className="border-b">
       <td className="p-4 flex items-center">
@@ -67,13 +72,14 @@ const ProductItem = React.memo(({ product }) => {
           <p class="text-gray-500">Color: {color}</p>
           <p class="text-gray-500">Qty: {qty}</p>
           <div className="flex space-x-2 mt-2">
-            <button className={`bg-white text-black border border-a5a3a3 border-2 ${buttonBaseStyle} hover:bg-black hover:text-white hover:border-black`}>Remove</button>
+            <button onClick={handleClick} className={`bg-white text-black border border-a5a3a3 border-2 ${buttonBaseStyle} hover:bg-black hover:text-white hover:border-black`}>Remove</button>
+            
             <button className={`bg-white text-black border border-a5a3a3 border-2 ${buttonBaseStyle} hover:bg-black hover:text-white hover:border-black`}>Edit</button>
           </div>
         </div>
       </td>
       <td className="p-4 font-semibold">{price}</td>
-      <td className="p-4 font-semibold">${parseFloat(price.replace('$', '')) * qty}</td>
+      <td className="p-4 font-semibold">${price* qty}</td>
     </tr>
   );
 });

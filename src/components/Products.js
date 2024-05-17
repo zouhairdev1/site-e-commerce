@@ -1,56 +1,44 @@
 import React, { useState, useRef } from 'react';
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 import '../styles.css';
+import { addToCart } from '../actions/Action';
+
 
 const buttonClasses = 'button1';
 const productCardClasses = 'product-card';
 const priceClasses = 'price';
-const addToCartButtonClasses = 'add-to-cart-button';
+const addToCartButtonClasses = 'add-to-cart-button ';
 
-const ProductCard = ({ imageSrc, productName, description, price }) => (
-    <div className={productCardClasses}>
+const ProductCard = ({id, imageSrc, productName, description, price,slug }) =>{ 
+    // add product to cart
+const dispatch=useDispatch()
+const handleClick=()=>{
+  dispatch(addToCart('MACBOOK AIR M2', 1040,  123466770,  'Black', 1,  'https://example.com/macbook.jpg','fgdgf'))
+};
+    return(
+    
+        <div className={productCardClasses}>
+<Link to={'/detailsProductsPage/'.concat(slug)}>
         <img src={imageSrc} alt={productName} className="product-image" />
         <h3 className="product-name">{productName}</h3>
         <p className="product-description">{description}</p>
         <span className={priceClasses}>${price}</span>
+         </Link>
         <div className="product-footer">
-            <Link className={addToCartButtonClasses} to={"/detailsProductsPage"}>Add To Cart</Link>
+            <Link className={addToCartButtonClasses} onClick={handleClick} to={"/cart"}>Add To Cart</Link>
             <IconSave />
         </div>
     </div>
-);
+   
+
+)};
 
 const Products = () => {
-    const [categories, setCategories] = useState([
-        {
-            id: 1,
-            name: 'Electronics',
-            products: [
-                {
-                    id: 1,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'SAMSUNG GALAXY S23 ULTRA',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 1040
-                },
-                {
-                    id: 2,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'IPHONE 15 PRO MAX',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 1040
-                },
-                {
-                    id: 3,
-                    imageSrc: 'https://placehold.co/300x300',
-                    productName: 'MACBOOK AIR M2',
-                    description: 'Learn about hosting built for scale and reliability',
-                    price: 1040
-                }
-            ]
-        }
-    ]);
+   
 
+    const [categories, setCategories] = useState(useSelector((state)=>state.data.productsByCategore));
+console.log(useSelector((state)=>state.data.productsByCategore));
     const scrollContainerRef = useRef(null);
 
     const handleScroll = (scrollOffset) => {
@@ -59,22 +47,23 @@ const Products = () => {
         }
     };
 
-    
     return (
         <div className="container1">
             {categories.map(category => (
                 <div key={category.id}>
-                    <h1 className="title1">Category {category.name}</h1>
-                    <div className="content1 overflow-x-scroll">
+                    <h1 className="title1">Category: {category.name}</h1>
+                    <div className="content1 flex items-center">
                         <button className={buttonClasses} onClick={() => handleScroll(-100)}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="icon">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
-                        <div className="scroll-container grid gap-4" ref={scrollContainerRef}>
+                        <div className="scroll-container flex gap-4 overflow-x-hidden" ref={scrollContainerRef}>
                             {category.products.map(product => (
                                 <ProductCard
                                     key={product.id}
+                                    id={product.id}
+                                    slug={product.slug}
                                     imageSrc={product.imageSrc}
                                     productName={product.productName}
                                     description={product.description}
@@ -119,5 +108,6 @@ function IconSave() {
         </div>
     );
 }
+
 
 export default Products;
