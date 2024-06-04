@@ -15,6 +15,9 @@ import SignUp from "../pages/SignUpPage";
 import VonderAcount from "../pages/VonderAcountPage";
 import DetailsProductsPage from "../pages/DetailsProductsPage";
 import LayoutConnexion from "../layouts/LayoutConnexion";
+import NotFoundPage from "../pages/NotFoundPage";
+import AdminPage from "../pages/AdminPage";
+import Paiement from "../pages/PaiementPage";
 import { redirect } from "react-router-dom";
 const routes = createBrowserRouter([
   {
@@ -61,7 +64,11 @@ const routes = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact/>,
-      }
+      },
+      {
+        path: "/adminPage",
+        element:<AdminPage/>,
+      },
     ],
   },
   {
@@ -79,7 +86,15 @@ const routes = createBrowserRouter([
       {
         path: "/vonderAcount",
         element: <VonderAcount/>,
-      }
+      },
+      {
+        path: "*",
+        element: <NotFoundPage/>,
+      },
+      {
+        path: "/paiement",
+        element: <Paiement/>,
+      },
     ]
   }
 ]);
