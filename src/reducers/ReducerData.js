@@ -1,6 +1,6 @@
 import * as actionType from "../actions/ActionType";
 const init = {
-  products:null,
+  products:[],
   productsByCategore:[
     {
         id: 1,
@@ -30,6 +30,22 @@ const init = {
                 description: 'Learn about hosting built for scale and reliability',
                 price: 1040
             },
+            {
+              id: 3,
+              slug:3,
+              imageSrc: 'https://placehold.co/300x300',
+              productName: 'SAMSUNG GALAXY S23 ULTRA',
+              description: 'Learn about hosting built for scale and reliability',
+              price: 1040
+          },
+          {
+            id: 3,
+            slug:3,
+            imageSrc: 'https://placehold.co/300x300',
+            productName: 'SAMSUNG GALAXY S23 ULTRA',
+            description: 'Learn about hosting built for scale and reliability',
+            price: 1040
+        },
         ]
     },
     {

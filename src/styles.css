@@ -197,7 +197,7 @@
     height: 24px;
 }
 
-.grid {
+.grid-cart {
   display: flex; /* Use flexbox */
   flex-wrap: nowrap; /* Prevent wrapping */
   gap: 4px;

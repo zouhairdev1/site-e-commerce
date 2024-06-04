@@ -1,9 +1,23 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import {useRef} from 'react'
+import {useDispatch, useSelector } from "react-redux";
+import { Link} from "react-router-dom";
+import {search, selectCategory} from '../actions/Action'
 
 
 export default function Header() {
+  const currentSearch=useRef()
+  const category=useRef()
   const itemsLength=useSelector((state)=>state.cart.itemsLength)
+  const data=useSelector((state)=>state.data.products); 
+  const ctgy=data.map((product)=>product.category);
+  const setCatey=new Set(ctgy)
+  const listCatecories=Array.from(setCatey)
+  const dispatch=useDispatch()
+  const handlSearchClick=(e)=>{
+    e.preventDefault();   
+dispatch(search(currentSearch.current.value))
+  }
+  const handlSelectCategory=()=>{dispatch(selectCategory(category.current.value))}
   const itemNave =
     " hover:bg-black  px-2 py-2 mx-1 text-black/60 transition duration-100  text-center hover:text-white rounded-full active:bg-black avtive:rounded-full";
 
@@ -50,10 +64,17 @@ export default function Header() {
             data-twe-collapse-item
           >
             <div className="  ">
-              <form className="w-full h-fit flex flex-row ">
-                <input type="text" className=" lg:h-10 lg:px-3 w-10/12  rounded-l-full border shadow focus:outline-none " placeholder="Search" />
-                <button className="rounded-r-full lg:h-10 lg:w-16 bg-[#EBEBEB] border shadow"><span className="[&>svg]:w-5 flex flex-row justify-center [&>svg]:text-neutral-500 text-center [&>svg]:stroke-black/50"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></span></button>
+             <Link to={'/products'}>
+             <form className="w-full h-fit flex flex-row ">
+ 
+                <input type="text" ref={currentSearch} onChange={handlSearchClick} className=" lg:h-10 lg:px-3 w-10/12  rounded-l-full border shadow focus:outline-none " placeholder="Search" />
+
+                <button onClick={handlSearchClick} className="rounded-r-full lg:h-10 lg:w-16 bg-[#EBEBEB] border shadow"><span className="[&>svg]:w-5 flex flex-row justify-center [&>svg]:text-neutral-500 text-center [&>svg]:stroke-black/50"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></span></button>
               </form>
+             </Link>
+               
+              
+             
                <ul
               className="list-style-none mt-2 me-auto w-full flex justify-center flex-col ps-0 lg:mt-1 lg:flex-row"
               data-twe-navbar-nav-ref
@@ -165,8 +186,20 @@ export default function Header() {
            
           <div className="h-full ">
               <div className="flex flex-row items-start gap-5  justify-between">
-              <select className="border w-60 h-fit text-center rounded-full p-1 focus:outline-none focus:border-gray-500">
-    <option>Categories</option>
+              <select onChange={handlSelectCategory} ref={category} className="border w-60 h-fit text-center rounded-full p-1 focus:outline-none focus:border-gray-500">
+    <option>All Categories</option>
+    {
+      listCatecories.map((category)=>{
+        
+        return(
+          <option value={category}>
+          <span className="hover:bg-black hover:text-white cursor-pointer">{category}</span>
+        </option>
+          
+        )
+
+      })
+    }
     <option value="option1">
       <span className="hover:bg-black hover:text-white cursor-pointer">Option 1</span>
     </option>

@@ -11,7 +11,7 @@ export default function Cart() {
   return (
     <div className="bg-white-200 py-8">
       <div className="max-w-100 px-4 sm:px-6 lg:px-">
-        <div className="grid grid-cols-2">
+        <div className="grid-cart grid-cols-2">
           <div className="p-6 w-2/3">
           <h1 className="border-b-4 border-b6b2b2 text-3xl font-bold mb-6 pb-6">My Shopping Cart</h1>
             <ProductSection />

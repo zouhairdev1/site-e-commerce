@@ -43,13 +43,13 @@ export default function Selling() {
 
     return (
         <div className="max-w-400 px-4 mt-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid-cart grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="rounded-lg border border-double border-gray-200 p-4 w-3/4">
                     <ProductsPanel products={sellerProfile.products} />
                 </div>
                 <StatisticsPanel totalIncome={sellerProfile.totalIncome} views={sellerProfile.views} orders={sellerProfile.orders} />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid-cart grid-cols-1 md:grid-cols-3 gap-6">
             <div className="w-3/4">
                     <TransactionSettings />
                     </div>

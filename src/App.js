@@ -10,7 +10,8 @@ import axios from 'axios';
 function App() {
   const dispatch = useDispatch()
    useEffect(()=>{
-    axios.get('https://fakestoreapi.com/products')
+    const fetchData = async () => {
+       axios.get('https://fakestoreapi.com/products')
   .then(response => {
    dispatch(getData(response.data)) ;
   })
@@ -20,7 +21,10 @@ function App() {
   .finally(() => {
     console.log('Finished fetching data');
   });
-  })
+    }
+ 
+    fetchData();
+  }, [])
   return <RouterProvider router={routes} /> ;
 }
 
