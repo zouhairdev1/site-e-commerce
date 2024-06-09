@@ -39,6 +39,7 @@ const currentItems = res.slice(indexOfFirstItem, indexOfLastItem);
     
     setCurrentPage(childData);
   };
+  const productsSaved=useSelector((state)=>state.saved.productsSaved)
   return (
     <div className='container mx-auto w-5/6' >
       <h1>Paginated List</h1>
@@ -52,6 +53,7 @@ const currentItems = res.slice(indexOfFirstItem, indexOfLastItem);
                                     productName={product?.title}
                                     description={product?.description?.slice(0,47)}
                                     price={product?.price}
+                                  
                                 />
                             ))}
       </div>

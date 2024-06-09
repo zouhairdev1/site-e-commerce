@@ -12,7 +12,7 @@ const buttonClasses = 'button1';
 
 const Products = () => {
    
-
+    const productsSaved=useSelector((state)=>state.saved.productsSaved)
     const [categories, setCategories] = useState(useSelector((state)=>state.data.productsByCategore));
 console.log(useSelector((state)=>state.data.productsByCategore));
     const scrollContainerRef = useRef(null);
@@ -44,6 +44,7 @@ console.log(useSelector((state)=>state.data.productsByCategore));
                                     productName={product.productName}
                                     description={product.description}
                                     price={product.price}
+                                
                                 />
                             ))}
                         </div>

@@ -21,3 +21,6 @@ export const removeFromCart = (idItem) => ({
 export const savedProduct = ( id ) => ({
   type: actionType.SAVED_PRODUCT,payload:{ id:id }
 });
+export const unsavedProduct = ( id ) => ({
+  type: actionType.UNSAVED_PRODUCT,payload:{ id:id }
+});

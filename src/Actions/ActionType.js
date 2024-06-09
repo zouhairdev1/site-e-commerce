@@ -9,3 +9,4 @@ export const REMOVE_FROM_CART='removeFromCart'
 export const CLEAR_CART = 'CLEAR_CART';
 // type of saved products
 export const SAVED_PRODUCT ='saved'
+export const UNSAVED_PRODUCT ='UNSAVED_PRODUCT'
