@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { register } from '../actions/Action';
 // Constants for repeated utility class strings for Tailwind
 const inputBaseClasses = "bg-white dark:bg-white p-2 rounded-lg border border-black dark:border-gray-100 focus:outline-none";
 const buttonsubmitBaseClasses = "flex items-center justify-center text-white p-2 rounded-md hover:bg-gray-700";
@@ -37,13 +39,43 @@ const LoginFormArea = () => {
 };
 
 const LoginForm = () => {
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [password_comfirmation, setPassword_comfirmation] = useState('');
+    const dispatch = useDispatch();
+    const { loading, error } = useSelector((state) => state.auth);
+    const credentials={firstname,lastname,email,password,password_comfirmation}
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       dispatch(register(credentials));
+       
+      };
     return (
-        <form>
-            <InputField label="First name" type="text" id="firstname" placeholder="First name" />
-            <InputField label="Last name" type="text" id="lastname" placeholder="Last name" />
-            <InputField label="E-mail address" type="email" id="email" placeholder="E-mail address" />
-            <InputField label="Password" type="password" id="password" placeholder="Password" />
-            <button type="submit" className={`${buttonsubmitBaseClasses} bg-black mb-4 w-full`}>Continue</button>
+        <form onSubmit={handleSubmit}>
+             {error && <div className='text-red-600 '>{error}</div>}
+             <div className="flex flex-col mb-4">
+            
+            <input type="text" id="firstname" onChange={(e) => setFirstname(e.target.value)}  className={inputBaseClasses} placeholder="First name" />
+        </div>
+        <div className="flex flex-col mb-4">
+            
+            <input type="text" id="lastname" onChange={(e) => setLastname(e.target.value)}   className={inputBaseClasses} placeholder="Last name" />
+        </div>
+        <div className="flex flex-col mb-4">
+            
+            <input type="email" id="email" onChange={(e) => setEmail(e.target.value)}  className={inputBaseClasses} placeholder="E-mail address" />
+        </div>
+         <div className="flex flex-col mb-4">
+            
+            <input type="password" id="password" onChange={(e) => setPassword(e.target.value)}   className={inputBaseClasses} placeholder="Password " />
+        </div>
+        <div className="flex flex-col mb-4">
+            
+            <input type="password" id="password_comfirmation" onChange={(e) => setPassword_comfirmation(e.target.value)}   className={inputBaseClasses} placeholder="Comfirm password" />
+        </div>
+            <button type="submit" className={`${buttonsubmitBaseClasses} bg-black mb-4 w-full`}>{loading ? 'Logging in...' : 'Continue'}</button>
             <div className="flex items-center">
             <h6>Already have an account?</h6>
             <Link className="text-sm text-red-500 hover:underline ml-2" to={"/login"}>Login</Link>

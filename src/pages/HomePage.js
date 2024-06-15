@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../actions/Action";
 
 export default function HomePage() {
+
  
   return (
     <div>

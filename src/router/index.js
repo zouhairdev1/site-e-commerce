@@ -19,6 +19,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import AdminPage from "../pages/AdminPage";
 import Paiement from "../pages/PaiementPage";
 import { redirect } from "react-router-dom";
+import checkedIsAuth from "./checkedIsAuth";
 const routes = createBrowserRouter([
   {
     element: <Layout/>,
@@ -35,6 +36,7 @@ const routes = createBrowserRouter([
       {
         path: "/saved",
         element: <Saved/>,
+        loader: ()=> checkedIsAuth(),
       },
       {
         path: "/products",

@@ -1,3 +1,8 @@
+// type of auth
+export const LOGIN_REQUEST = "loginRequest";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT = "logout";
+export const LOGIN_FAILURE = "error";
 // type of fetch data
 export const DATA= 'data';
 // type of search product or filter by category

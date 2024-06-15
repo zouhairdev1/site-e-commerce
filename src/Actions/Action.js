@@ -1,4 +1,37 @@
-import * as actionType from './ActionType'
+import * as actionType from './ActionType';
+import axios from "axios";
+// authActions
+
+export const register = (credentials) => async (dispatch) => {
+  dispatch({ type: actionType.LOGIN_REQUEST });
+
+  try {
+    const response = await axios.post("http://127.0.0.1:8000/api/register", credentials);
+
+    dispatch({ type: actionType.LOGIN_SUCCESS, payload: response.data });
+  } catch (error) {
+    const errorMessage = error.response.data.message;
+    dispatch({ type: actionType.LOGIN_FAILURE, payload: errorMessage });
+  }
+};
+export const login = (credentials) => async (dispatch) => {
+  dispatch({ type: actionType.LOGIN_REQUEST });
+
+  try {
+    const response = await axios.post("http://127.0.0.1:8000/api/login", credentials);
+    if (response.status === 200) {
+     
+      dispatch({ type: actionType.LOGIN_SUCCESS, payload: response.data });
+    }
+
+   
+  } catch (error) {
+    
+    const errorMessage = error.response.data.message+'invalid'+credentials.password+'uuu'
+        
+    dispatch({ type: actionType.LOGIN_FAILURE, payload: errorMessage });
+  }
+};
 // action of fetch data
 export const getData = (data)=> ({
   type:actionType.DATA, payload:data

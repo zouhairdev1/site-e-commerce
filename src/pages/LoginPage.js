@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import { login } from '../actions/Action';
+import { useDispatch, useSelector } from 'react-redux';
 // Constants for repeated utility class strings for Tailwind
 const inputBaseClasses = "bg-white dark:bg-white p-2 rounded-lg border border-black dark:border-gray-100 focus:outline-none";
 const buttonsubmitBaseClasses = "flex items-center justify-center text-white p-2 rounded-md hover:bg-gray-700";
@@ -37,11 +39,32 @@ const LoginFormArea = () => {
 };
 
 const LoginForm = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const { loading, error } = useSelector((state) => state.auth);
+    const credentials={email,password}
+  // Async thunk for user login
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+     dispatch(login(credentials));
+     
+    };
     return (
-        <form>
-            <InputField label="E-mail address" type="email" id="email" placeholder="E-mail address" />
-            <InputField label="Password" type="password" id="password" placeholder="Password" />
-            <button type="submit" className={`${buttonsubmitBaseClasses} bg-black mb-4 w-full`}>Continue</button>
+        <form onSubmit={handleSubmit}>
+             {error && <div className='text-red-600 '>{error}</div>}
+            <div className="flex flex-col mb-4">
+            
+            <input type="email" id="email" onChange={(e) => setEmail(e.target.value)}  className={inputBaseClasses} placeholder="E-mail address" />
+        </div>
+        <div className="flex flex-col mb-4">
+            
+            <input type="Password" id="Password" onChange={(e) => setPassword(e.target.value)}  className={inputBaseClasses} placeholder="Password" />
+        </div>
+
+           
+            <button type="submit" className={`${buttonsubmitBaseClasses} bg-black mb-4 w-full`}>{loading ? 'Logging in...' : 'Continue'}</button>
             <a href="#" className="text-sm text-red-500 hover:underline">Forgot Password?</a>
             <div className="flex items-center">
             <h6>You don't have an account?</h6>
